@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Personal Space</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<style>
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		height:1500px;
+        grid-area:content;
+        border:3px;
+        background-color: cornsilk;
+        border-color: cornsilk;
+	}
+
+	h1, h2, h3 {
+		margin-bottom: 1.5em;
+	}
+
+	h1 {
+		font-size: 2.5em;
+	}
+
+	h2 {
+		font-size: 2em;
+	}
+
+	h3 {
+		font-size: 1em;
+	}
+
+	p, ul, ol {
+		margin-bottom: 1.5em;
+		line-height: 180%;
+	}
+
+	ul, ol {
+		margin-left: 3em;
+	}
+
+	blockquote {
+		margin-left: 3em;
+		margin-right: 3em;
+	}
+
+	a {
+		color: #ffc107;
+
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	strong {
+		color: #D7D7D7;
+	}
+
+	img.left {
+		float: left;
+		margin: 5px 5px 5px 5px;
+	}
+
+	img.right {
+		float: right;
+		margin: 5px 0px 0px 25px;
+	}
+   .main-nav {
+            position:fixed;
+            top:0; left:0; right:0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 46px;
+            padding: 20px 150px 20px 120px;
+            z-index:1000;
+            font-size: 18px;
+            align-content: center;
+            background-color:rgb(243, 237, 219);
+            -webkit-box-shadow: 0px -1px 17px -2px rgba(189,189,189,0.82);
+            -moz-box-shadow: 0px -1px 17px -2px rgba(189,189,189,0.82);
+            box-shadow: 0px -1px 17px -2px rgba(189,189,189,0.82);
+
+            }
+
+
+
+            .main-nav .logo {
+            width: 60px;
+            padding:10px;
+            color:blue;
+            }
+
+
+             .logo i{
+                 width:10px;
+                color:green;
+            }
+
+            .main-nav ul {
+            display: flex;
+            }
+
+            .main-nav ul li {
+            padding: 0 20px;
+            }
+
+            .main-nav ul li a {
+                padding-bottom: 2px;
+                font-size:1.3rem;
+                border-radius:.5rem;
+                padding:.5rem 1.5rem;
+                color:darkslateblue;
+            }
+
+            .main-nav ul li a:hover {
+                border-bottom: 2px solid lightgrey;
+                color:#fff;
+                background:darkorange;
+            }
+
+            .main-nav ul.main-menu {
+            flex: 1;
+            margin-left: 20px;
+            width:800px;
+            margin:0px auto;
+            }
+
+            .main-nav .icons{
+                display:flex;
+                font-size:1.7rem;
+                border-radius:0.5rem;
+                padding:.5rem 1rem;
+            }
+
+
+
+            .main-nav .icons a{
+                cursor:pointer;
+                line-height:2.5rem;
+                text-align:center;
+                margin-right:1rem;
+                width:2.5rem;
+                font-size:1.7rem;
+                border-radius: 30%;
+
+            }
+
+            .main-nav .icons a:hover{
+                background-color: lightgray;
+            }
+
+	/* Background */
+
+	.bg1 {
+		/*background: #fd7e14;*/
+
+		grid-area: showcase;
+		height: 350px;
+		background: url('../../static/images/pic3.png');
+		background-size: cover;
+		background-position: center;
+		padding: 60px 20px 20px 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		margin:0px auto;
+		font-weight:550;
+	}
+
+	.bg2 {
+		background: #ffc107;
+	}
+
+	.bg3 {
+		background: #ffc107;
+	}
+
+	#bg4 {
+		background: #00a8e0;
+	}
+
+	#bg5 {
+		background: #fff3cd;
+	}
+
+	/* Header */
+
+	#header {
+		width: 900px;
+		height: 145px;
+		margin: 0px auto;
+		text-transform: lowercase;
+		color: #FFFFFF;
+	}
+
+	#header h1 {
+		float: left;
+		margin: 0px;
+		padding: 70px 0px 0px 25px;
+		font-size: 40px;
+	}
+
+	#header h1 sup {
+		font-weight: normal;
+	}
+
+	#header h2 {
+		float: right;
+		margin: 0px;
+		padding: 95px 25px 0px 0px;
+		font-size: 14px;
+	}
+
+	#header a {
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+
+	/* Header2 */
+
+	#header2 {
+		width: 900px;
+		height: 88px;
+		margin: 0px auto;
+	}
+
+	/* Menu */
+
+	#menu {
+		float: left;
+	}
+
+	#menu ul {
+		margin: 0px;
+		padding: 34px 0px 0px 0px;
+		list-style: none;
+		text-transform: lowercase;
+	}
+
+	#menu li {
+		float: left;
+	}
+
+	#menu a {
+		padding-left: 50px;
+		text-decoration: none;
+		font-size: 16px;
+		font-weight: bold;
+		color: #FFFFFF;
+	}
+
+	/* Search */
+
+	#search {
+		float: right;
+	}
+
+	#search form {
+		margin: 0px;
+		padding: 35px 80px 0px 0px;
+	}
+
+	#search fieldset {
+		margin: 0px;
+		padding: 0px;
+		border: none;
+	}
+
+	#search input.text {
+		width: 160px;
+		background: none;
+		border: none;
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		color: #AEC38B;
+	}
+
+	#search input.button {
+		display: none;
+	}
+
+	/* Page */
+
+	#page {
+		width: 846px;
+		margin: 0px auto;
+		padding: 40px 0px 0px 0px;
+	}
+
+	/* Content */
+
+	#content {
+		float: left;
+		width: 583px;
+	}
+
+	.post {
+	}
+
+	.post .title {
+		height: 49px;
+		background: #fd7e14;
+	}
+
+	.post .title h2 {
+		float: left;
+		padding: 12px 0px 0px 24px;
+		font-size: 24px;
+		text-transform: lowercase;
+	}
+
+	.post .title h2 a {
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+
+	.post .title h2 a:hover {
+		color: #ffd708;
+	}
+
+	.post .title p {
+		float: right;
+		padding: 12px 24px 0px 0px;
+		font-size: 15px;
+		font-weight: bold;
+		color: #343434;
+	}
+
+	.post .entry {
+		padding: 30px 2px 0px 23px;
+	}
+
+	.post .meta {
+		height: 70px;
+		clear: left;
+		margin: 0px 23px;
+		padding: 15px 0px 0px 0px;
+		border-top: 1px solid #00a8e0;
+	}
+
+	.post .meta .credit {
+		float: left;
+	}
+
+	.post .meta .links {
+		float: right;
+	}
+
+
+	/* Sidebar */
+
+	#sidebar {
+		float: right;
+		width: 250px;
+	}
+
+	#sidebar ul {
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+	}
+
+	#sidebar li {
+		background: #ffe8a1;
+		padding: 0px 23px 20px 23px;
+		font-size:13px;
+	}
+
+	#sidebar li ul {
+	}
+
+	#sidebar li li {
+		padding: 8px 0px;
+		background: none;
+		border-bottom: 1px solid #fd7e14;
+	}
+
+	#sidebar h2 {
+		margin: 0px;
+		padding: 10px 0px 30px 0px;
+		text-transform: lowercase;
+		font-size: 15px;
+		color:#ffffff;
+		background: #fd7e14;
+		height:12px;
+	}
+
+	/* Footer */
+
+	#footer {
+	}
+
+	#footer p {
+		margin: 0px;
+		padding: 20px 0px;
+		text-align: center;
+		text-transform: lowercase;
+		color: #566D77;
+	}
+
+	#footer a {
+		color: #8097A1;
+	}
+    </style>
+</head>
+<body>
+<div>
+<nav class="main-nav">
+						<img src="../../static/images/pic1.webp" alt="logo" class="logo">
+						<!-- <a href class="logo"><i class="fas-fa-untensils"></i>English</a> -->
+
+						<ul class="main-menu">
+							<!-- <a href="#home" class="active">home</a> -->
+							<li><a href="index.html">Home</a></li>
+							<li><a href="#">Forum</a></li>
+							<li><a href="translate.html">Utils</a></li>
+							<li><a href="class.html">Class</a></li>
+							<li><a href="user.html">User</a></li>
+						</ul>
+
+						<div class="icons">
+							<a href="#" class="fa fa-bars" id="menu-bars"></a>
+							<a href="#" class="fa fa-heart" id="heart"></a>
+							<a href="#" class="fa fa-search" id="search-icon"></a>
+							<a href="#" class="fa fa-user"></a>
+						</div>
+					  </nav>
+
+<div class="bg1">
+	<div id="header">
+		<h1>Personal Space</h1>
+		<h2>Your private learning corner!</h2>
+    </div>
+	<!-- end #header -->
+</div>
+
+<div class="bg2">
+	<div id="header2">
+		<div id="menu">
+			<ul>
+				<li><a href="user.html">Classwork</a></li>
+				<li><a href="user2.html">Resource</a></li>
+				<li><a href="user3.html">Moments</a></li>
+				<li><a href="#">Function</a></li>
+				<li><a href="feedback.html">Feedback</a></li>
+			</ul>
+		</div>
+		<!-- end #menu -->
+		<div id="search">
+			<form method="get" action="#">
+				<fieldset>
+				<input type="text" name="q" value="search keywords" id="q" class="text" />
+				<input type="submit" value="Search" class="button" />
+				</fieldset>
+			</form>
+		</div>
+		<!-- end #search -->
+	</div>
+	<!-- end #header2 -->
+</div>
+<!-- end #bg2 -->
+<div class="bg3">
+	<div id="bg4">
+		<div id="bg5">
+			<div id="page">
+				<div id="content">
+
+					<div class="post">
+						<div class="title">
+							<h2><a href="user.html">Classwork</a></h2>
+						</div>
+
+						<div class="entry">
+							<img src="../../static/images/class.jpeg" width="150" height="102" class="left" />
+							<h2>Speaking Class</h2>
+							<p class="links"><a href="#">未读通知(2)</a> &nbsp;&nbsp;</p>
+						</div>
+				        <div class="meta">
+						</div>
+
+						<div class="entry">
+							<img src="../../static/images/listenclass.webp" width="150" height="102" class="left" />
+							<h2>Listening Class</h2>
+							<p class="links"><a href="#">未读通知(1)</a> &nbsp;&nbsp;</p>
+						</div>
+						<div class="meta">
+						</div>
+					</div>
+
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<ul>
+						<li>
+							<div class="title">
+							<h2>Recently Browsed Items</h2>
+							</div>
+							<ul>
+							    <li><a href="#">Dream comes true.</a></li>
+						        <li><a href="#">Dream comes true again.</a></li>
+						        <li><a href="#">Dream comes true again and again.</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="title">
+							<h2>Recently Liked</h2>
+							</div>
+							<ul>
+								<li><a href="#">I bought a horse.</a></li>
+						        <li><a href="#">I bought a horse again.</a></li>
+						        <li><a href="#">I bought a horse again and again.</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div style="clear: both; height: 40px;">&nbsp;</div>
+			</div>
+			<!-- end #page -->
+		</div>
+	</div>
+</div>
+<!-- end #bg3 -->
+<div id="footer">
+
+</div>
+<!-- end #footer -->
+	</div>
+</body>
+</html>

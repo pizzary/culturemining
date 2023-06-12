@@ -1,0 +1,504 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <title>英语学习平台</title>
+    <script>
+
+
+
+    </script>
+    <style>
+        body{
+            background: rgb(255,189,146);
+            background: linear-gradient(90deg, rgba(255,189,146,0.88) 16%, rgba(239,147,0,0.8580474426098564) 51%, rgba(177,72,16,0.85) 90%);
+        }
+        :root{
+            --orange:rgb(100,100,100)
+
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            }
+
+            a {
+            color: #262626;
+            text-decoration: none;
+            }
+
+            ul {
+            list-style: none;
+            }
+
+
+        /* Nav */
+            .main-nav {
+            position:fixed;
+            top:0; left:0; right:0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 46px;
+            padding: 20px 150px 20px 120px;
+            z-index:1000;
+            font-size: 18px;
+            align-content: center;
+            background-color:rgb(243, 237, 219);
+            -webkit-box-shadow: 0px -1px 17px -2px rgba(189,189,189,0.82);
+            -moz-box-shadow: 0px -1px 17px -2px rgba(189,189,189,0.82);
+            box-shadow: 0px -1px 17px -2px rgba(189,189,189,0.82);
+
+            }
+
+
+
+            .main-nav .logo {
+            width: 60px;
+            padding:10px;
+            color:blue;
+            }
+
+
+             .logo i{
+                 width:10px;
+                color:green;
+            }
+
+            .main-nav ul {
+            display: flex;
+            }
+
+            .main-nav ul li {
+            padding: 0 20px;
+            }
+
+            .main-nav ul li a {
+                padding-bottom: 2px;
+                font-size:1.3rem;
+                border-radius:.5rem;
+                padding:.5rem 1.5rem;
+                color:darkslateblue;
+            }
+
+            .main-nav ul li a:hover {
+                border-bottom: 2px solid lightgrey;
+                color:#fff;
+                background:darkorange;
+            }
+
+            .main-nav ul.main-menu {
+            flex: 1;
+            margin-left: 20px;
+            width:800px;
+            margin:0px auto;
+            }
+
+            .main-nav .icons{
+                display:flex;
+                font-size:1.7rem;
+                border-radius:0.5rem;
+                padding:.5rem 1rem;
+            }
+
+
+
+            .main-nav .icons a{
+                cursor:pointer;
+                line-height:2.5rem;
+                text-align:center;
+                margin-right:1rem;
+                width:2.5rem;
+                font-size:1.7rem;
+                border-radius: 30%;
+
+            }
+
+            .main-nav .icons a:hover{
+                background-color: lightgray;
+            }
+
+
+            .bg {
+            background: url('/static/images/pic3.png');
+            color:white;
+            background-size: cover;
+            background-position: center;
+            height:400px;
+            width: 1400px;
+            }
+
+            .bg {
+                display: grid;
+                grid-gap: 20px;
+                grid-template-areas:
+                    'showcase showcase top-box-a'
+                    'showcase showcase top-box-b';
+                }
+
+                /* Showcase */
+            .bg1 {
+                grid-area: showcase;
+                height: 350px;
+                width: 1650px;
+                background: url('/static/images/pic3.png');
+                background-size: cover;
+                background-position: center;
+                padding: 60px 20px 20px 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                margin:0px auto;
+                font-weight:550;
+                }
+
+            .bg1 h1{
+
+                font-size: 5rem;
+                margin-bottom: 0;
+                color: whitesmoke;
+            }
+
+            .bg1 p {
+                color:azure;
+                font-size: 1.5rem;
+                margin-top: 15px;
+                color:whitesmoke;
+                padding:30px;
+                }
+
+
+            .layout{
+                height:1500px;
+                width:1200px;
+                margin:0px auto;
+                display:grid;
+                grid-template-areas:"header header header""sidebar content content""footer footer footer";
+                align-items:start;
+                justify-items: center;
+                justify-content: center;
+                grid-template-columns:1fr 2fr 1fr;
+                grid-template-rows: 1fr 2fr 1fr;
+                gap:2px;
+            }
+
+            header{
+                height:150px;
+                width:1650px;
+                grid-area:header;
+                border:10px;
+                border-color: black;
+                background-color: gray;
+
+            }
+
+            main{
+                height:1500px;
+                width:1237px;
+                grid-area:content;
+                border:3px;
+                background-color: cornsilk;
+                border-color: cornsilk;
+            }
+
+            aside{
+                height:900px;
+                width:411px;
+                grid-area:sidebar;
+                border:3px;
+                background-color: cornsilk;
+
+            }
+
+            footer{
+                height:200px;
+                width:1200px;
+                grid-area:footer;
+                border:3px;
+                background-color: cornsilk;
+                border-color: black;
+            }
+
+            .icon{
+                font-family: FontAwesome;
+            }
+
+
+            .cards{
+            display:flex;
+            padding:15px;
+
+        }
+                    /* 按键button */
+        button {
+        /* Variables */
+        --button_radius: 0.75em;
+        --button_color: #e8e8e8;
+        --button_outline_color: #000000;
+        font-size: 10px;
+        font-weight: bold;
+        border: none;
+        border-radius: var(--button_radius);
+        background: var(--button_outline_color);
+        }
+
+        .button_top {
+        display: block;
+        box-sizing: border-box;
+        border: 2px solid var(--button_outline_color);
+        border-radius: var(--button_radius);
+        padding: 0.75em 1.5em;
+        background: var(--button_color);
+        color: var(--button_outline_color);
+        transform: translateY(-0.2em);
+        transition: transform 0.1s ease;
+        }
+
+        button:hover .button_top {
+        /* Pull the button upwards when hovered */
+        transform: translateY(-0.33em);
+        }
+
+        button:active .button_top {
+        /* Push the button downwards when pressed */
+        transform: translateY(0);
+        }
+
+        .card a img {
+            height:125px;
+            position:absolute;
+            clip:rect(0px 235px 200px 00px);
+
+        }
+
+        .card-language2{
+            background-color: gainsboro;
+            width:1600px;
+            height:100px;
+            display:flex;
+            flex-direction:column;
+            margin:20px;
+            -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+            -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+            box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+            border-radius: 10%;
+
+        }
+        .card-lang{
+            width:800px;
+            height:30px;
+            margin:0px auto;
+            padding:15px 10px 3px 5px;
+        }
+        .lan{
+            position:relative;
+            left:550px;
+            top:25px;
+        }
+        .choice{
+            position:relative;
+            left:700px;
+        }
+
+        .title{
+            width:240px;
+            margin:0px auto;
+            padding:16px 10px 10px 10px;
+            font-size: 10px;
+        }
+
+        .title a:hover{
+            /* border-bottom: 1px solid gray; */
+            color:rgb(16, 128, 240);
+            font-size:12px;
+            font-weight:550;
+        }
+
+        /* 新闻列表区 */
+
+        .aside{
+            display:flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+        .news h2{
+            padding: 60px 40px;
+            color: #DAA520;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        .news ul{
+            padding:10px 10px 10px 10px;
+            background: #FFFFE0;
+        }
+        .news ul li{
+            list-style: none;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px dashed gray;
+            text-indent: 15px;
+            font-size: 17px;
+        }
+        .news a{
+            text-decoration: none;
+            color: saddlebrown;
+        }
+        .news a:hover{
+            text-decoration: underline;
+            color: orange;
+        }
+
+        h1{
+            /* 文字不加粗 */
+            padding:30px;
+            font-weight: 600;
+            font-size: 46px;
+            /* 让h1里面的文字水平居中对齐 */
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+        }
+        .gary{
+            color: #888888;
+            font-size: 12px;
+            text-align: center;
+        }
+        .btn{
+            font-weight: 700;
+        }
+        p{
+            /* 首行缩进两个距离 */
+            text-indent: 2em;
+            padding:25px 30px;
+            font-size:25px;
+        }
+        .pic{
+            /* 想要图片居中对齐，要加在他的父亲上 */
+            text-align: center;
+        }
+        .ft{
+            color: #888888;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Nav -->
+
+        <nav class="main-nav">
+          <img src="{% static 'images/pic1.webp' %}" alt="logo" class="logo">
+
+          <ul class="main-menu">
+              <!-- <a href="#home" class="active">home</a> -->
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'translate' %}">Utils</a></li>
+              <li><a href="{% url 'news' %}">News</a></li>
+              <li><a href="{% url 'video' %}">Video</a></li>
+              <li><a href="{% url 'user' %}">User</a></li>
+          </ul>
+
+          <div class="icons">
+              <a href="#" class="fa fa-bars" id="menu-bars"></a>
+              <a href="#" class="fa fa-heart" id="heart"></a>
+              <a href="#" class="fa fa-search" id="search-icon"></a>
+              <a href="#" class="fa fa-user"></a>
+          </div>
+        </nav>
+
+        <div class="bg1">
+            <h1>Learn English</h1>
+            <p>welcome to our english learning website!</p>
+        </div>
+
+
+
+        <div class="layout">
+            <header>
+                <div class="header">
+                    <div class="card-language2">
+                        <img style="width:50px;height:50px" src="{% static 'images/111.webp' %}" class="lan" >
+                        <form action="/polls/trans/" method="post" class="choice">
+                            <div>
+                                <label>显示语言</label>
+                                <select name="srclang" id="srclang">
+                                <option value="en">English</option>
+                                <option value="ch">简体中文</option>
+                                <option value="chh">繁体中文</option>
+                                </select>
+
+                                 <button>
+                                    <!-- <input type="submit" class="btn btn-primary" value="提交"> -->
+                                    <span class="button_top"> submit
+                                    </span>
+                                </button>
+                                <button>
+                                    <!-- <input type="reset" class="btn btn-default" value="重置"> -->
+                                    <span class="button_top"> clear
+                                    </span>
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <aside>
+                <div class="aside">
+                    <div class="news">
+                    <h2>新闻列表/News List</h2>
+                    <ul>
+                       <li><a href="#">2020年实现所有人民脱贫</a></li>
+                       <li><a href="#">中国高考生人数逐年递减说明了什么</a></li>
+                       <li><a href="#">IT专业就业率第一</a></li>
+                       <li><a href="#">前程工作师前景如何</a></li>
+                       <li><a href="#">科技改变生活，10个新科技展示</a></li>
+                        <li><a href="#">学会管理时间</a></li>
+                        <li><a href="#">2020年实现所有人民脱贫</a></li>
+                       <li><a href="#">中国高考生人数逐年递减说明了什么</a></li>
+                       <li><a href="#">IT专业就业率第一</a></li>
+                       <li><a href="#">前程工作师前景如何</a></li>
+                       <li><a href="#">科技改变生活，10个新科技展示</a></li>
+                        <li><a href="#">学会管理时间</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </aside>
+            <main>
+                <div class="main">
+                    <h1>Bill Gates to visit China</h1>
+                    <div class="gary">2022.5.30
+                        <a href="#">newswebsite</a>
+                    </div>
+                    <hr>
+                    <p class="pic"><img src="../static/images/gates.jpeg" alt=""></p>
+                    <p>Chinanews, Shanghai, April 13 - According to the news from Microsoft China, Bill Gates, the chairman of Microsoft, will visit China from April 18 to 21. Mr. Gates will have meetings with Chinese officials, experts, and elite2 businesspeople to discuss the development of Microsoft's operation in China.</p>
+
+                    <p> It is said that Mr. Gates will take part in Microsoft Government Leaders Forum3 in Beijing, and Boao Forum for Asia in Hainan, at both of which he will give speeches to promote innovation and narrowing digital gaps, thus to spread the conveniences of information technology to more people.</p>
+
+                    <p>Mr. Gates also plans to visit Tsinghua University and Peking University, where he will make speech to students and distinguished4 guests from education circles.</p>
+                    <p class="ft">Edited by somebody</p>
+
+                </div>
+            </main>
+
+
+
+        </div>
+    </div>
+</body>
+</html>

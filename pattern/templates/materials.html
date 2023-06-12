@@ -1,0 +1,466 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/mutual.css' %}">
+    <title>Document</title>
+    <style>
+
+        /* 定义主栏、侧栏，以及侧栏内部导航、文章、音频box大小 */
+        .material-box{
+            width:1650px;
+            height:2000px;
+            background-color: darkorange;
+            padding:10px;
+            margin:0px auto;
+            display:flex;
+            justify-content: space-around
+        }
+
+        .material-aside{
+            display:flex;
+            flex-direction: column;
+        }
+        .video-box{
+            width:1050px;
+            height:1800px;
+            background-color: aquamarine;
+        }
+
+        .quick-box{
+            width:560px;
+            height:380px;
+            background-color: antiquewhite;
+            float:right;
+            margin:0px auto;
+        }
+
+        .article-box{
+            width:560px;
+            height:650px;
+            background-color: rgb(215, 247, 250);
+            float:right;
+            margin:0px auto;
+
+        }
+        .article-boxs{
+            display:grid;   
+            grid-template-columns:1fr 1fr;
+        }
+        .audio-box{
+            width:560px;
+            height:800px;
+            background-color: rgb(217, 215, 250);
+            float:right;
+            margin:0px auto;
+        }
+
+        /* 定义快捷入口box */
+
+        .entrance{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr 1fr;
+            justify-items: center
+        }
+
+        .entrance a{
+            width: 100px;
+            height:150px;
+        }
+        .entrance p{
+            font-size:20px;
+            line-height: 40px;
+            margin:10px;
+        }
+
+
+        .quick-box>p, .article-box>p, .audio-box>p{
+            font-size:20px;
+            margin:10px;
+            line-height: 40px;
+        }
+
+        /* 定义文章box */
+        .material-card{
+        background-color: white;
+        width:270px;
+        height:260px;
+        display:flex;   
+        flex-direction:column;
+        margin:5px;
+        -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+        -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+        box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+        border-radius: 2.5%;
+        }
+
+
+        .material-card a img {
+            height:125px;
+            position:absolute;
+            clip:rect(0px 248px 200px 00px);
+
+        }
+
+        .material-card-pic{
+            width:245px;
+            height:150px;
+            margin:0px auto;
+            padding:15px 0px 5px 0px;
+        }
+        
+        /* 主栏视频 */
+        .videos{
+        display:grid;
+        grid-template-columns:380px 380px;
+        grid-template-rows:260px 200px;
+        padding:50px 50px;
+        justify-items: center;
+        justify-content: center;
+        align-items: start;
+        }
+
+        .video{
+            display:flex;
+            margin:10px auto;
+            padding:0px 10px 10px 15px;
+        }
+
+        .main-box iframe{
+        width:700px;
+        }
+
+        .main-box-right{
+            width:310px;
+        }
+
+        .main-box-right iframe{
+            width:300px;
+            margin:3px 10px 5px 10px;
+        }
+
+        /* audio音频box */
+
+        audio{
+            width:500px;
+            height: 35px;
+        }
+
+        .audios{
+            background-color: #fff;
+            margin:20px;
+            display: flex;
+            height:100px;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius:15px;
+            -webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+            -moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+            box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.12);
+        }
+        .blbl-videos{
+            border-bottom: 1px solid gray;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <img src="{% static 'images/pic1.webp' %}" alt="logo" class="logo">
+        <!-- <a href class="logo"><i class="fas-fa-untensils"></i>English</a> -->
+  
+        <ul class="main-menu">
+              <!-- <a href="#home" class="active">home</a> -->
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><a href="{% url 'translate' %}">Utils</a></li>
+              <li><a href="{% url 'news' %}">News</a></li>
+              <li><a href="{% url 'video' %}">Video</a></li>
+              <li><a href="{% url 'user' %}">User</a></li>
+        </ul>
+  
+        <div class="icons">
+            <a href="#" class="fa fa-bars" id="menu-bars"></a>
+            <a href="#" class="fa fa-heart" id="heart"></a>
+            <a href="#" class="fa fa-search" id="search-icon"></a>
+            <a href="#" class="fa fa-user"></a>
+        </div>
+      </nav>
+
+    <div class="bg1">
+        <h1>Colorful World🌏</h1>
+        <p>Check out latest news and videos!🎬</p>
+    </div>
+    <div class="material-box">
+        <div class="video-box">
+            <div class="video-cards">
+                <div class="blbl-videos">
+                    <div class="bilibili-title">Bilibili videos</div>
+                    <div class="video bilibili">
+                        <!-- iframe的width在上面调 -->
+                        <div class="main-box">
+                            <iframe src="{{ video1.ifr }}" scrolling="yes" border="0"  width="80%" height="545"  frameborder="0" >
+                            </iframe>
+                        </div>
+                        <div class="main-box-right">
+                            <iframe src="{{ video2.ifr }}" scrolling="no" border="0"  width="80%" height="171"  frameborder="0" danmaku=0 >
+                            </iframe>
+                            <iframe src="{{ video3.ifr }}" scrolling="no" border="0"  width="80%" height="171"  frameborder="0" danmaku=0 >
+                            </iframe>
+                            <iframe src="{{ video4.ifr }}" scrolling="no" border="0"  width="80%" height="171"  frameborder="0" danmaku=0 >
+                            </iframe>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="ted-videos">
+                    <div class="ted-title">TED videos</div>
+                    <div style="padding:10px 10px 10px 100px" class="video-list">
+                        <div class="video-big">
+                            <a href="#">
+                                <i class="fa fa-play-circle-o fa-4x" style="color: #fff"></i>
+                                <img src="{% static 'images/ted6.jpg' %}" />
+                            </a>
+                            <h3 class="vid-name"><a href="#">An Olympic champion's mindset for overcoming fear</a></h3>
+                            <div class="info">
+                                <span><i class="fa fa-calendar"></i>25/3/2015</span> 
+                            </div>
+                            <p class="more">
+                                Getting pregnant as a track and field athlete is often called the "kiss of death" -- a sign your athletic career will soon end. Olympic champion, entrepreneur and proud mother Allyson Felix thinks it shouldn't be that way. 
+                            </p>
+                        </div>
+                        <div class="videos-small">
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x" style="color: rgb(255, 255, 255)"></i>
+                                    <img src="{% static 'images/ted2.jpg'%}" />
+                                </a>
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x"></i>
+                                    <img src="{% static 'images/ted3.jpg'%}" />
+                                </a>
+            
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x" style="color: #fff"></i>
+                                    <img src="{% static 'images/ted4.jpg'%}" />
+                                </a>
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding:10px 10px 10px 100px" class="video-list">
+                        <div class="videos-small">
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x" style="color: rgb(255, 255, 255)"></i>
+                                    <img src="{% static 'images/ted2.jpg' %}" />
+                                </a>
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x"></i>
+                                    <img src="{% static 'images/ted3.jpg'%}" />
+                                </a>
+            
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x" style="color: #fff"></i>
+                                    <img src="{% static 'images/ted4.jpg'%}" />
+                                </a>
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                        </div>
+                        <div class="videos-small">
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x" style="color: rgb(255, 255, 255)"></i>
+                                    <img src="{% static 'images/ted2.jpg'%}" />
+                                </a>
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x"></i>
+                                    <img src="{% static 'images/ted3.jpg' %}" />
+                                </a>
+            
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                            <div class="video-small">
+                                <a href="#">
+                                    <i class="fa fa-play-circle-o fa-4x" style="color: #fff"></i>
+                                    <img src="{% static 'images/ted4.jpg'%}" />
+                                </a>
+                                <div class="more">
+                                    <h3 class="vid-name"><a href="#">Video's Name</a></h3>
+                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
+                                    <p>An Olympic champion's mindset for overcoming fear</p>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="material-aside">
+            <div class="quick-box">
+                <p>Quick Entrance</p>
+                <ul class="entrance">
+                    <a href="https://www.ted.com/">
+                        <img style="width:80px"src="{% static 'images/ted.webp'%} " />
+                        <p>TED</p>
+                    </a>
+                    <a href="https://www.chinavoa.com/">
+                        <img style="width:80px"src="{% static 'images/VOA.webp' %}" />
+                        <p>VOA</p>
+                    </a>
+                    <a href="http://www.chinadaily.com.cn/">
+                        <img style="width:80px"src="{% static 'images/chinadaily.webp' %}" />
+                        <p>chinadaily</p>
+                    </a>
+                    <a href="https://www.bilibili.com/v/channel/360005?keyword=%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0&tab=featured">
+                        <img style="width:80px"src="{% static 'images/bilibili.webp' %}" />
+                        <p>Bilibili</p>
+                    </a>
+                    <a href="https://www.collinsdictionary.com/zh/">
+                        <img style="width:80px"src="{% static 'images/collins.webp' %}" />
+                        <p>collins</p>
+                    </a>
+                </ul>
+            </div>
+            <div class="article-box">
+                <p>Chinadaily articles</p>
+                <div class="article-boxs">
+                    <div class="material-card">
+                        <a href="#"  class="card-pic">
+                            <img width=250px src="{% static 'images/chinadaily2.jpg' %}" alt="文章1" class="article">
+                        </a>
+                        <li class="title">
+                            <a href="#">Young volunteers carry forward inspirational Olympic spirit</a>
+                        </li>
+                        <li class="title">
+                            <a href="#">Dynamic zero approach underpin growth</a>
+                        </li>
+                    </div>
+                    <div class="material-card">
+                        <a href="#"  class="card-pic">
+                            <img width=250px src="{% static 'images/chinadaily2.jpg' %}" alt="文章1" class="article">
+                        </a>
+                        <li class="title">
+                            <a href="#">Young volunteers carry forward inspirational Olympic spirit</a>
+                        </li>
+                        <li class="title">
+                            <a href="#">Dynamic zero approach underpin growth</a>
+                        </li>
+                    </div>
+                    <div class="material-card">
+                        <a href="#"  class="card-pic">
+                            <img width=250px src="{% static 'images/chinadaily2.jpg' %}" alt="文章1" class="article">
+                        </a>
+                        <li class="title">
+                            <a href="#">Young volunteers carry forward inspirational Olympic spirit</a>
+                        </li>
+                        <li class="title">
+                            <a href="#">Dynamic zero approach underpin growth</a>
+                        </li>
+                    </div>
+                    <div class="material-card">
+                        <a href="#"  class="card-pic">
+                            <img width=250px src="{% static 'images/chinadaily2.jpg' %}" alt="文章1" class="article">
+                        </a>
+                        <li class="title">
+                            <a href="#">Young volunteers carry forward inspirational Olympic spirit</a>
+                        </li>
+                        <li class="title">
+                            <a href="#">Dynamic zero approach underpin growth</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="audio-box">
+                <p>VOA audios</p>
+                <li class="audios">
+                    <a href='{% url 'audio1' %}' class="seemore">{{ news1.title }}</a>
+                    <div><i class="fa fa-calendar"></i>22/5/2022</div> 
+                    <audio src="{{ news1.ifr }}" controls></audio>
+                </li>
+                <li class="audios">
+                    <a href="https://www.51voa.com/VOA_Special_English/south-sudan-plan-to-re-start-waterway-project-faces-resistance-89022.html" class="seemore">{{ news2.title }}</a>
+                    <div><i class="fa fa-calendar"></i>22/5/2022</div> 
+                    <audio src="{{ news2.ifr }}" controls></audio>
+                </li>
+                <li class="audios">
+                    <a href="https://www.51voa.com/VOA_Special_English/north-korea-fights-covid-with-leaves-and-tea-89003.html" class="seemore">{{ news3.title }}</a>
+                    <div><i class="fa fa-calendar"></i>19/5/2022</div> 
+                    <audio src="{{ news3.ifr }}" controls></audio>
+                </li>
+                <li class="audios">
+                    <a href="https://www.51voa.com/VOA_Special_English/google-says-new-eyeglasses-can-translate-languages-in-real-time-88980.html" class="seemore">Happy horse</a>
+                    <div><i class="fa fa-calendar"></i>15/5/2022</div> 
+                    <audio src="{{ news3.ifr }}" controls></audio>
+                </li>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
