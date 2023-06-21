@@ -18,9 +18,8 @@ from django.urls import re_path as url
 
 from . import views
 
-
+app_name = 'pattern'
 urlpatterns = [
     path('', views.pattern, name="pattern"),
-    #path('listenwrite/',views.lw)
+    path('retrieval', views.retrieval, name="retrieval")
 ]
-#url(r'^material/',views.material, name="video"),

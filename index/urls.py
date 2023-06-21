@@ -18,8 +18,7 @@ from django.urls import re_path as url
 
 from . import views
 
-
+app_name = 'index'
 urlpatterns = [
-    path('',views.index, name="index"),
+    path('', views.index, name="index"),
 ]
-#url(r'^material/',views.material, name="video"),

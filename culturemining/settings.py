@@ -59,7 +59,7 @@ ROOT_URLCONF = 'culturemining.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'static').replace('\\', '/')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'static2').replace('\\', '/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +86,7 @@ DATABASES = {
         'HOST': '127.0.0.1',  # 数据库主机
         'PORT': 3306,  # 数据库端口
         'USER': 'root',  # 数据库用户名
-        'PASSWORD': 'root',  # 数据库用户密码
+        'PASSWORD': '20020309',  # 数据库用户密码
         'NAME': 'culture'  # 数据库名字
     }
 }

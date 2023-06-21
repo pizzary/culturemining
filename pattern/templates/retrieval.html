@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Retrieval</title>
+    <script>
+        function showresult(url) {
+           // var resultContainer = document.getElementById('result-container');
+            //var similarImage = document.getElementById('similar-image');
+
+               // var similarImageBytes = data.similar_image_bytes;
+                // Convert the byte arrays to base64 strings
+                //var similarImageBase64 = btoa(String.fromCharCode.apply(null, similarImageBytes));
+                //similarImage.src = 'data:image/jpeg;base64,' + similarImageBase64;
+            //resultContainer.style.display = 'block';
+
+            // Process multiple image URLs if available
+            // var imageUrls = data.image_urls;
+            var savedValue = 1;
+            var summary = document.getElementById('sum');
+            summary.textContent = savedValue;
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Image Retrieval</h1>
+    <form method="post" id="upload-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" id="image-input" accept="image/*">
+        <br>
+        <label for="algorithm">选择算法:</label>
+        <select name="algorithm" id="algorithm">
+            <option value="algorithm1">算法1</option>
+            <option value="algorithm2">算法2</option>
+            <option value="algorithm3">算法3</option>
+        </select>
+        <br>
+        <button type="submit">Upload and Search</button>
+    </form>
+
+    <div id="result-container">
+        <h2>Queried Image</h2>
+        <img id="similar-image" src="" alt="Similar Image">
+    </div>
+    <div id="image-container">
+        <h2>Result Image</h2>
+        {% for url in image_urls %}
+        <img src="{{ url }}" alt="Result Image">
+        {% endfor %}
+    </div>
+
+</body>
+</html>
