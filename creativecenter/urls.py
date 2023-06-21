@@ -18,8 +18,7 @@ from django.urls import re_path as url
 
 from . import views
 
-
+app_name = 'creativecenter'
 urlpatterns = [
     path('', views.creativecenter, name="creativecenter"),
 ]
-#url(r'^material/',views.material, name="video"),

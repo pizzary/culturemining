@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Gallery</title>
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/style2.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Google Fonts -->
+<link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="{% static 'js/jquery.mousewheel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.contentcarousel.js' %}"></script>
+<script src="{% static 'js/easing.js' %}"></script>
+<!-- //grid-slider -->
+</head>
+<body>
+<!-- Header Starts Here -->
+	<div class="header-bottom">
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!--/.navbar-header-->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+					 <li><a href="index.html">Home</a></li>
+						<li><a href="#services" class="scroll">Services</a></li>
+						 <li><a href="#about" class="scroll">About</a></li>
+						<li><a href="#gallery" class="scroll">Gallery</a></li>
+						<li><a href="#insurance" class="scroll">Insurance</a></li>
+						<li><a href="#contact" class="scroll">Contact</a></li>
+					</ul>
+				</div>
+				<!--/.navbar-collapse-->
+			</nav>
+
+
+				<!-- search-scripts -->
+					<script src="{% static 'js/classie.js'%}"></script>
+					<script src="{% static 'js/uisearch.js'%}"></script>
+					<script>
+						new UISearch( document.getElementById( 'cm-search' ) );
+					</script>
+				<!-- //search-scripts -->
+
+		</div>
+	</div>
+<!-- Header Ends Here -->
+    <form method="get" action="{% url 'pattern:pattern' %}">
+        <input type="text" name="search_query" id="search_query" placeholder="搜索...">
+        <select name="dynasty" id="search-select-1">
+            <option value="">朝代</option>
+            <option value="元">元</option>
+            <option value="北宋">北宋</option>
+            <option value="南宋">南宋</option>
+            <option value="宋">宋</option>
+            <option value="明">明</option>
+            <option value="清">清</option>
+        </select>
+        <select name="category" id="search-select-2">
+            <option value="">载体</option>
+            <option value="织绣画">织绣画</option>
+            <option value="匹料">匹料</option>
+            <option value="服饰">服饰</option>
+            <option value="日用织物">日用织物</option>
+        </select>
+        <select name="species" id="search-select-3">
+            <option value="">类别</option>
+            <option value="缂丝">缂丝</option>
+            <option value="京绣">京绣</option>
+            <option value="鲁绣">鲁绣</option>
+            <option value="锦">锦</option>
+            <option value="顾绣">顾绣</option>
+            <option value="">空选项</option>
+            <option value="广绣">广绣</option>
+            <option value="堆绫">堆绫</option>
+            <option value="男礼服">男礼服</option>
+            <option value="男便服">男便服</option>
+            <option value="男吉服">男吉服</option>
+            <option value="冠、带佩饰">冠、带佩饰</option>
+            <option value="女便服">女便服</option>
+            <option value="女吉服">女吉服</option>
+            <option value="女常服">女常服</option>
+            <option value="女礼服">女礼服</option>
+            <option value="纳纱">纳纱</option>
+            <option value="刺绣">刺绣</option>
+            <option value="男常服">男常服</option>
+            <option value="漳缎">漳缎</option>
+            <option value="女常服">女常服</option>
+            <option value="靴、鞋、袜">靴、鞋、袜</option>
+            <option value="织锦">织锦</option>
+            <option value="满绣">满绣</option>
+            <option value="男行服">男行服</option>
+            <option value="女吉服">女吉服</option>
+            <option value="男雨服">男雨服</option>
+            <option value="男礼服">男礼服</option>
+            <option value="男行服">男行服</option>
+            <option value="男吉服">男吉服</option>
+            <option value="男常服">男常服</option>
+            <option value="缎">缎</option>
+            <option value="刺绣">刺绣</option>
+            <option value="漳绒">漳绒</option>
+        </select>
+        <button type="submit">搜索</button>
+    </form>
+
+<!-- Page Starts Here -->
+<div class="content">
+	<div class="container">
+		<div class="gallery">
+			<h3>Our Gallery</h3>
+			<p> when an unknown printer took a galley of type and scrambled it to make a type </p>
+			<div class="gallery-top">
+                {% for pattern in patterns %}
+                <div class="view view-tenth">
+                    <img src="{{ pattern.img }}" />
+                    <div class="mask">
+                        <h2>Our Gallery</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings</p>
+                        <a href="single.html" class="info">Read More</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+			<div class="pag-nations">
+				<ul class="p_n-list">
+					<li><a href="#">Prev</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">More</a></li>
+					<li><a href="#">19</a></li>
+					<li><a href="#">20</a></li>
+					<li><a href="#">Next</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!-- Page Ends Here -->
+<!-- Footer Part Starts Here -->
+
+<!-- Footer Part Ends Here -->
+
+</body>
+</html>
