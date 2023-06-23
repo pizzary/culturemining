@@ -46,6 +46,12 @@ def pattern(request):
 def passage(request):
     return render(request, "passage.html")
 
+def single(request):
+    return render(request, "blog.html")
+
+def blog(request):
+    return render(request, "blog.html")
+
 def retrieval(request):
     if request.method == 'POST':
         # 获取上传的图像文件
