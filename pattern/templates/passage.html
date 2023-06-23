@@ -17,7 +17,22 @@
 		<script type="text/javascript" src="{% static 'js/jquery.contentcarousel.js' %}"></script>
 		<script src="{% static 'js/easing.js' %}"></script>
 		
-		
+        <script>
+            function showText(title, img, introduction, structure, application) {
+            // 获取需要替换标题和内容的元素
+            var titleElement = document.getElementById('article-title');
+            var imgElement = document.getElementById('article-img');
+            var introductionElement = document.getElementById('article-introduction');
+            var structureElement = document.getElementById('article-structure');
+            var applicationElement = document.getElementById('article-application');
+            //text = text.replace(/<br\s*\/?>/g, '\n');
+            titleElement.textContent = title;
+            imgElement.src = img;
+            introductionElement.textContent = introduction;
+            structureElement.textContent = structure;
+            applicationElement.textContent = application;
+          }
+        </script>
 		
 		<!-- mixing -->
 		<link href="{% static 'css/style.css'%}" rel='stylesheet' type='text/css' />
@@ -104,7 +119,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="{% url 'index:index' %}">首页</a></li>
-						   <li><a href="{% url 'pattern:passage' %}" class="scroll">纹样库</a></li>
+						   <li><a href="{% url 'pattern:passage' '0' 0 %}" class="scroll">纹样库</a></li>
 						   <li><a href="#insurance" class="scroll">前沿研究</a></li>
 						   <li><a href="#insurance" class="scroll">创作中心</a></li>
 						   <li><a href="#contact" class="scroll">关于我们</a></li>
@@ -141,15 +156,23 @@
 		<div class="gallery">
 			<h3>纹样百科</h3>
 			<div class="blog-sidebar">
-				<h4>纹样类别</h4>
+				<h4>不同类别的纹样</h4>
 				<ul class="cat-list">
-					<li><a href="#">动物纹</a></li>
-					<li><a href="#">植物纹</a></li>
-					<li><a href="#">自然纹</a></li>
-					<li><a href="#">字纹</a></li>
-					<li><a href="#">其它纹样</a></li>
+                    {% for article1 in articles1 %}
+                        <li>
+                            <a href="#"  onclick="showText('{{ article1.category }}', '{{ article1.img }}', '{{ article1.introduction }}', '{{ article1.structure }}', '{{ article1.application }}')">{{ article1.category }}</a>
+                        </li>
+                    {% endfor %}
 				</ul>
-				<h4>近期热门</h4>
+				<h4>不同朝代下的纹样</h4>
+				<ul class="cat-list">
+					{% for article2 in articles2 %}
+                        <li>
+                            <a href="#"  onclick="showText('{{ article2.dynasty }}', '{{ article2.img }}', '{{ article2.introduction }}', '{{ article2.structure }}', '{{ article2.application }}')">{{ article2.dynasty }}</a>
+                        </li>
+                    {% endfor %}
+				</ul>
+                <h4>近期热门</h4>
 				<ul class="cat-list">
 					<li><a href="#"><img src="images/bl.jpg" alt="" />&nbsp;&nbsp;唐锦花鸟纹</a></li>
 					<li><a href="#"><img src="images/bl2.jpg" alt="" />&nbsp;&nbsp;清锦蝶花纹样</a></li>
@@ -160,20 +183,26 @@
 			</div>
 			<div class="blog-content">
 				<div class="blog-post">
-					<h4>宝相花纹</h4>
+					<h4 id="article-title">
+                        {% if type == 1 %}
+                            {{ link.0.category }}
+                        {% else %}
+                            {{ link.0.dynasty }}
+                        {% endif %}
+                    </h4>
 					<div class="post-details">
 						<p>编辑者 <a href="#">Wen</a> &nbsp;&nbsp; 于 <span>2023.06.23</span> &nbsp;&nbsp; 喜欢<span>(10)</span></p>
 					</div>
-					<img src="{% static 'images/宝相花.png' %}" alt="" />
+
 					<div>介绍</div>
-					<p>宝相花纹，又称宝仙花、宝莲花，是中国传统的吉祥纹样，也是佛教常用的一种纹饰。宝相是指佛的庄严形象，宝相花是一种完美圣洁的花。</p>
+					<p id="article-introduction">{{ link.0.introduction }}</p>
 					<div>结构</div>
-					<p>宝相花是从莲花、石榴花、牡丹、菊花等多种花中分别提取花 瓣、花苞、叶子的造型，经艺术加工融合而成。不同时期的宝相花纹不尽相同。为了满足不同的需求，宝相花纹可以变形，呈现出姿态各异、艳丽多彩的效果。</p>
+					<p id="article-structure">{{ link.0.structure }}</p>
 					<div>应用</div>
-					<p>从魏晋南北朝开始，植物花卉题材的纹样越来越多。宝相花纹进入了陶瓷艺术、建筑装饰和器皿装饰等许多艺术领域。到了隋唐时 期，宝相花纹造型更加饱满，以不同的自然花卉为基础，花瓣多层，具有雍容华贵的美感。隋唐之后，宝相花纹流行于织锦、铜镜和瓷器上，成为独具特色的中华民族传统纹样。</p>
+					<p id="article-application">{{ link.0.application }}</p>
 				</div>
 				<div class="small_img">
-					<img src="{% static 'images/宝相花2.png' %}" class="small-image" />
+					<img id="article-img" src="{{ link.0.img }}" class="small-image" />
 					<p>唐代藻井上的综合型宝相花纹</p>
 				</div>
 

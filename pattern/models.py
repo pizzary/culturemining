@@ -7,12 +7,6 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-class Dynasty(models.Model):
-    name = models.CharField(max_length=50)
-
-class Category(models.Model):
-    name = models.CharField(max_length=50)
-
 class Patternbank(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100, default="0")
@@ -24,6 +18,22 @@ class Patternbank(models.Model):
     content = models.TextField()
     patterns = models.CharField(max_length=100, default="0")
     img_bytes = models.BinaryField(default=0)
+
+class Dynasty_Article(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    dynasty = models.CharField(max_length=100, default="0")
+    img = models.CharField(max_length=500, default="0")
+    introduction = models.TextField()
+    structure = models.TextField()
+    application = models.TextField()
+
+class Category_Article(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    category = models.CharField(max_length=100, default="0")
+    img = models.CharField(max_length=500, default="0")
+    introduction = models.TextField()
+    structure = models.TextField()
+    application = models.TextField()
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)

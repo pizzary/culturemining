@@ -20,7 +20,7 @@ from . import views
 app_name = 'pattern'
 urlpatterns = [
     path('', views.pattern, name="pattern"),
-    path('passage/', views.passage, name="passage"),
+    path('passage/<str:title>/<int:type>/', views.passage, name="passage"),
     path('retrieval', views.retrieval, name="retrieval"),
     path('single', views.single, name="single"),
     path('blog', views.blog, name="blog")

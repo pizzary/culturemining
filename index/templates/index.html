@@ -85,7 +85,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li><a href="{% url 'index:index' %}">首页</a></li>
-						   <li><a href="{% url 'pattern:passage' %}" class="scroll">纹样库</a></li>
+						   <li><a href="{% url 'pattern:passage' '0' 0 %}" class="scroll">纹样库</a></li>
 						   <li><a href="#insurance" class="scroll">前沿研究</a></li>
 						   <li><a href="#insurance" class="scroll">创作中心</a></li>
 						   <li><a href="#contact" class="scroll">关于我们</a></li>
@@ -324,16 +324,12 @@
 				<p> </p>
 				<div class="insu">
 				<ul>
-						<li><a href="#"><span></span>夏商西周（前2100-前771）</a></li>
-						<li><a href="#"><span></span>春秋战国 （前770-前221）</a></li>
-						<li><a href="#"><span></span>秦汉（前221-220）</a></li>
-						<li><a href="#"><span></span>三国两晋南北朝（220-589）</a></li>
-						<li><a href="#"><span></span>隋唐（581-907）</a></li>
-						<li><a href="#"><span></span>宋代（960-1279） </a></li>
-						<li><a href="#"><span></span>元代（1206-1368）</a></li>
-						<li><a href="#"><span></span>明代（1368-1644）</a></li>
-						<li><a href="#"><span></span>清代（1616-1911）</a></li>
-					</ul>
+                    {% for link in link2 %}
+                        <li>
+                            <a href="{% url 'pattern:passage' link.dynasty 2 %}"><span></span>{{ link.dynasty }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
 				</div>
 			</div>
 			<div class="col-md-4 insurance-right">
@@ -348,13 +344,12 @@
 				<p> </p>
 				<div class="insu">
 				<ul>
-						<li><a href="#"><span></span>动物纹样</a></li>
-						<li><a href="#"><span></span>植物纹样</a></li>
-						<li><a href="#"><span></span>几何纹样</a></li>
-						<li><a href="#"><span></span>自然与天地属性相纹样</a></li>
-						<li><a href="#"><span></span>文字与符号纹样</a></li>
-						<li><a href="#"><span></span>人物纹样 </a></li>
-					</ul>
+					{% for link in link1 %}
+                        <li>
+                            <a href="{% url 'pattern:passage' link.category 1 %}"><span></span>{{ link.category }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
 				</div>
 			</div>
 			<div class="col-md-4 insurance-right">

@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from pattern.models import Category_Article, Dynasty_Article
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    link1 = Category_Article.objects.all()
+    link2 = Dynasty_Article.objects.all()
+
+    return render(request, "index.html", {'link1': link1, 'link2': link2})
 
 def user(request):
     return render(request, 'personalspace.html')

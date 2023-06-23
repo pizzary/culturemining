@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 import cv2
 import numpy as np
 from django.http import JsonResponse, HttpResponse
-# from .image_retrieval import algorithm2
-from .models import Patternbank
+from .image_retrieval import algorithm2
+from .models import Patternbank, Category_Article, Dynasty_Article
 from django.db.models import Q
 # Create your views here.
 def pattern(request):
@@ -43,9 +43,26 @@ def pattern(request):
     else:
         return render(request, "pattern.html")
 
-def passage(request):
-    return render(request, "passage.html")
+def passage(request, title, type):
+    articles1 = Category_Article.objects.all()
+    articles2 = Dynasty_Article.objects.all()
+    if type == 1:
+        link = Category_Article.objects.filter(category__icontains=title)  # 根据搜索字符串进行查找，使用 icontains 进行不区分大小写的模糊匹配
+    elif type == 2:
+        link = Dynasty_Article.objects.filter(dynasty__icontains=title)  # 根据搜索字符串进行查找，使用 icontains 进行不区分大小写的模糊匹配
+        print(len(link))
+    else:
+        link = None
+    return render(request, "passage.html", {'articles1': articles1, 'articles2': articles2, 'link': link, 'type': type})
+"""
+def passage_index_link(request, title):
 
+    context = {
+        'dynasty': title,
+        # 其他需要传递给模板的数据...
+    }
+    return render(request, 'pattern.html', context)
+"""
 def single(request):
     return render(request, "blog.html")
 
