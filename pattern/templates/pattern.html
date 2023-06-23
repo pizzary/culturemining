@@ -123,13 +123,13 @@
     color: #666;
     line-height: 1.5;
   }
-  .header-bottom{
+		.header-bottom{
 			background-color: white;
 			/* position: fixed; */
     		/* top: 0; */
 		}
 
-		.navbar-default .navbar-nav > li > a:hover,.navbar-default .navbar-nav > li > a:visited{
+		.scroll:hover{
 			color:darkcyan;
 		}
   </style>
@@ -154,7 +154,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 					 <li><a href="{% url 'index:index' %}">首页</a></li>
-						<li><a href="{% url 'pattern:passage' %}" class="scroll">纹样库</a></li>
+						<li><a href="{% url 'pattern:pattern' %}" class="scroll">纹样库</a></li>
 						<li><a href="#insurance" class="scroll">前沿研究</a></li>
                         <li><a href="#insurance" class="scroll">创作中心</a></li>
 						<li><a href="#contact" class="scroll">关于我们</a></li>

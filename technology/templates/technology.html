@@ -1,294 +1,311 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/reset.css'%}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
-    <script type="text/javascript" src="{% static 'http://code.jquery.com/jquery-1.10.0.min.js'%}"></script>
-    <link rel="stylesheet" href="{% static 'css/mutual.css'%}">
-    <title>technology</title>
+    <head>
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Healing Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+        Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+        <script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+        <!-- Custom Theme files -->
+        <link href="{% static 'css/style.css'%}" rel='stylesheet' type='text/css' />
+        <script src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
+        <!--webfonts-->
+        <link href='http://fonts.useso.com/css?family=Antic' rel='stylesheet' type='text/css' />
+        <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700|Six+Caps' rel='stylesheet' type='text/css' />
+           <!--//webfonts-->
+           <link rel="stylesheet" href="{% static 'css/flexslider.css'%}" type="text/css" media="screen" />
+        <script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+        <!--light-box-files -->
+        <script src="{% static 'js/modernizr.custom.97074.js'%}"></script>
+        <script src="{% static 'js/jquery.chocolat.js'%}"></script>
+            <link rel="stylesheet" href="{% static 'css/chocolat.css'%}" type="text/css" media="screen" charset="utf-8">
+    
+            <script type="text/javascript" charset="utf-8">
+            $(function() {
+                $('.g-left a').Chocolat();
+            });
+            </script>
+        <!--light-box-files -->
+        <script type="text/javascript" src="{% static 'js/move-top.js'%}"></script>
+               <script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+                <script type="text/javascript">
+                    jQuery(document).ready(function($) {
+                        $(".scroll").click(function(event){
+                            event.preventDefault();
+                            $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+                        });
+                    });
+                </script>
+                <script type="text/javascript">
+                $(document).ready(function() {
+                        /*
+                        var defaults = {
+                        containerID: 'toTop', // fading element id
+                        containerHoverID: 'toTopHover', // fading element hover id
+                        scrollSpeed: 1200,
+                        easingType: 'linear'
+                        };
+                        */
+                $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+        </script>
+        <style>
+            .header-bottom{
+                background-color: white;
+                /* position: fixed; */
+                /* top: 0; */
+            }
+    
+            .scroll:hover{
+                color:darkcyan;
+            }
+    
+    
+        </style>
+    </head>
+    <style>
+.container-module {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000;
+  margin: 0 auto;
+}
+
+.module {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 200px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.module h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.module p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 850px;
+  height: 200px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-radius:10px;
+  margin-bottom: 30px;
+}
+
+.block:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.img {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.content {
+  flex-grow: 1;
+}
 
 
-</head>
+.column {
+  flex-basis: 30%;
+}
+
+.column img {
+  width: 100%;
+  height: auto;
+}
+
+.column h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.column p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.column .tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.column .tags span {
+  display: inline-block;
+  background-color: #ccc;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.column a {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+#code_title{
+    width:250px;
+    margin:auto;
+    padding:30px
+}
+#code_title h2{
+    width:150px;
+    margin:auto;
+    /* padding:auto; */
+}
+
+#code_title p{
+    width:65px;
+    margin:auto;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+    </style>
 <body>
-    <div class="container">
-        <!-- Nav -->
+    	 <!-- header-bottom -->
+	<div class="header-bottom">
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!--/.navbar-header-->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="{% url 'index:index' %}">首页</a></li>
+						   <li><a href="{% url 'pattern:passage' '0' 0 %}" class="scroll">纹样库</a></li>
+						   <li><a href="#insurance" class="scroll">前沿研究</a></li>
+						   <li><a href="#insurance" class="scroll">创作中心</a></li>
+						   <li><a href="#contact" class="scroll">关于我们</a></li>
+					   </ul>
+				</div>
+				<!--/.navbar-collapse-->
+			</nav>
+			<div class="search-box">
+					<div id="sb-search" class="sb-search">
+<!--					<div id="sb-search" class="sb-search">-->
+						<form>
+							<input class="sb-search-input" placeholder="搜索" type="search" name="search" id="search">
+							<input class="sb-search-submit" type="submit" value="">
+							<span class="sb-icon-search" > </span>
+							</form>
+					</div>
+				</div>
+					<div class="clearfix"> </div>
 
-        <nav class="main-nav">
-          <img src="{% static 'images/pic1.webp'%}" alt="logo" class="logo">
+				<!-- search-scripts -->
+					<script src="{% static 'js/classie.js'%}"></script>
+					<script src="{% static 'js/uisearch.js'%}"></script>
+					<script>
+						new UISearch( document.getElementById( 'sb-search' ) );
+					</script>
+				<!-- //search-scripts -->
 
-          <ul class="main-menu">
-              <!-- <a href="#home" class="active">home</a> -->
-              <li><a href="{% url 'index' %}">首页</a></li>
-              <li><a href="{% url 'pattern' %}">纹样库</a></li>
-              <li><a href="{% url 'technology' %}">前沿研究</a></li>
-              <li><a href="{% url 'creativecenter' %}">创作中心</a></li>
-          </ul>
+		</div>
+	</div>
+	<!-- /header-bottom -->
 
-          <div class="icons">
-              <a href="#" class="fa fa-bars" id="menu-bars"></a>
-              <a href="#" class="fa fa-heart" id="heart"></a>
-              <a href="#" class="fa fa-search" id="search-icon"></a>
-              <a href="#" class="fa fa-user"></a>
+    <div class="container-module">
+        <div class="module">
+          <h2>纹样数据库</h2>
+          <p>传统纹样的前沿人工智能研究需要大量的高质量纹样数据支持，共创和谐数字纹样社区。</p>
+          <a href="#">查看详情</a>
+        </div>
+        <div class="module">
+          <h2>纹样分割</h2>
+          <p>纹样分割将图片中的纹样进行分离及标记，自动识别纹样中不同的元素，是纹样分析和处理的基础。</p>
+          <a href="#">查看详情</a>
+        </div>
+        <div class="module">
+          <h2>纹样几何重构</h2>
+          <p>研究传统纹样的几何结构，总结不同纹样规律，推理生成不同类别及风格的纹样。</p>
+          <a href="#">查看详情</a>
+        </div>
+        <div class="module">
+          <h2>纹样色彩迁移</h2>
+          <p>纹样色彩迁移将纹样图片迁移到另一种色彩风格，可以用于纹样的设计和创新。</p>
+          <a href="#">查看详情</a>
+        </div>
+      </div>
+
+      <div id="code_title">
+        <h2>模型及代码</h2>
+        <p>近期热门</p>
+      </div>
+
+
+    <div class="block">
+        <div class="column">
+            <img src="image.jpg" alt="image">
           </div>
-        </nav>
+          <div class="column">
+            <h2>Title</h2>
+            <p>Time</p>
+            <p>Summary</p>
+          </div>
+          <div class="column">
+            <div class="tags">
+              <span>纹样生成</span>
+              <span>纹样数据集</span>
+            </div>
+            <a href="#">github</a>
+            <a href="#">论文pdf</a>
+          </div>
+      </div>
+    <div class="block">
+        <div class="column">
+            <img src="image.jpg" alt="image">
+          </div>
+          <div class="column">
+            <h2>Title</h2>
+            <p>Time</p>
+            <p>Summary</p>
+          </div>
+          <div class="column">
+            <div class="tags">
+              <span>纹样生成</span>
+              <span>纹样数据集</span>
+            </div>
+            <a href="#">github</a>
+            <a href="#">论文pdf</a>
+          </div>
+      </div>
 
-        <div class="bg1">
-            <h1>文化挖掘</h1>
-            <p>文物是时间的留痕，让我们能够感受到岁月的流转。</p>
-        </div>
+      
+      
 
+    
 
-
-        <div class="layout">
-            <header>
-                <div class="header">
-                    <div class="article-cards">
-                        <div class="cards">
-                            <div class="card">
-                                <a href="#"  class="card-pic">
-                                    <img width=250px src="{% static 'images/article7.jpg'%}" alt="文章1" class="article">
-                                </a>
-                                <li class="title">
-                                    <a href="#">Young volunteers carry forward inspirational Olympic spirit</a>
-                                </li>
-                                <li class="title">
-                                    <a href="#">Dynamic zero approach underpin growth</a>
-                                </li>
-                                <li class="title">
-                                    <a href="#">Joint education valuable in Sino-US cooperation: Envoy</a>
-                                </li>
-
-                            </div>
-                            <div class="card">
-                                <a href="#"  class="card-pic">
-                                    <img width=250px src="{% static 'images/chinadaily1.jpg' %}" alt="文章1" class="article">
-                                </a>
-                                <li class="title">
-                                    <a href="#">Young volunteers carry forward inspirational Olympic spirit</a>
-                                </li>
-                                <li class="title">
-                                    <a href="#">Dynamic zero approach underpin growth</a>
-                                </li>
-                                <li class="title">
-                                    <a href="#">Joint education valuable in Sino-US cooperation: Envoy</a>
-                                </li>
-
-                            </div>
-                            <div class="card">
-                                <a href="#"  class="card-pic">
-                                    <img width=250px src="{% static 'images/chinadaily2.jpg'%}" alt="文章1" class="article">
-                                </a>
-                                <li class="title">
-                                    <a href="#">Young volunteers carry forward inspirational Olympic spirit</a>
-                                </li>
-                                <li class="title">
-                                    <a href="#">Dynamic zero approach underpin growth</a>
-                                </li>
-                                <li class="title">
-                                    <a href="#">Joint education valuable in Sino-US cooperation: Envoy</a>
-                                </li>
-
-                            </div>
-                            <div class="card">
-                                <a href="#"  class="card-pic">
-                                    <img width=250px src="{% static 'images/chinadaily3.png'%}" alt="文章1" class="article">
-                                </a>
-                                <li class="title">
-                                    <a href="#">Young volunteers carry forward inspirational Olympic spirit</a>
-                                </li>
-                                <li class="title">
-                                    <a href="#">Dynamic zero approach underpin growth</a>
-                                </li>
-                                <li class="title">
-                                    <a href="#">Joint education valuable in Sino-US cooperation: Envoy</a>
-                                </li>
-
-                            </div>
-
-                            <div class="login-page">
-                                <div class="form">
-                                  <form class="register-form">
-                                    <input type="text" placeholder="name"/>
-                                    <input type="password" placeholder="password"/>
-                                    <input type="text" placeholder="grade"/>
-                                    <input type="text" placeholder="class"/>
-                                    <button>create</button>
-                                    <p class="message">Already registered? <a href="#">Sign In</a></p>
-                                  </form>
-                                  <form class="login-form">
-                                    <input type="text" placeholder="username"/>
-                                    <input type="password" placeholder="password"/>
-                                    <button>login</button>
-                                    <p class="message">Not registered? <a href="#">Create an account</a></p>
-                                  </form>
-                                </div>
-                              </div>
-                        </div>
-                    </div>
-                </div>
-
-            </header>
-            <aside>
-                <div class="aside">
-                    <div id="sideline-aside">
-                        <h1 class="forum">论坛</h1>
-                        <div class="study-title">学习资料</div>
-                        <div class="study">
-                            <a href="#" class="fa fa-book">四级资料</a>
-                            <a href="#" class="fa fa-book">六级资料</a>
-                            <a href="#" class="fa fa-book">雅思考试</a>
-                            <a href="#" class="fa fa-book">托福考试</a>
-
-                        </div>
-                        <div class="fun-title">兴趣碰撞</div>
-                        <div class="fun">
-                            <a href="#" class="fa fa-globe">电影</a>
-                            <a href="#" class="fa fa-globe">音乐</a>
-                            <a href="#" class="fa fa-globe">科技</a>
-                            <a href="#" class="fa fa-globe">文学</a>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="login-page">
-                    <div class="form">
-                      <form class="register-form">
-                        <input type="text" placeholder="name"/>
-                        <input type="password" placeholder="password"/>
-                        <input type="text" placeholder="email address"/>
-                        <button>create</button>
-                        <p class="message">Already registered? <a href="#">Sign In</a></p>
-                      </form>
-                      <form class="login-form">
-                        <input type="text" placeholder="username"/>
-                        <input type="password" placeholder="password"/>
-                        <button>login</button>
-                        <p class="message">Not registered? <a href="#">Create an account</a></p>
-                      </form>
-                    </div>
-                  </div> -->
-
-            </aside>
-            <main>
-                <div class="main">
-
-                    <div class="video-cards">
-                        <div class="ted-title">TED videos</div>
-                        <div class="video-list">
-                            <div class="video-big">
-                                <a href="#">
-                                    <i class="fa fa-play-circle-o fa-4x" style="color: #fff"></i>
-                                    <img src="{% static 'images/ted6.jpg'%}" />
-                                </a>
-                                <h3 class="vid-name"><a href="#">An Olympic champion's mindset for overcoming fear</a></h3>
-                                <div class="info">
-                                    <span><i class="fa fa-calendar"></i>25/3/2015</span>
-                                </div>
-                                <p class="more">
-                                    Getting pregnant as a track and field athlete is often called the "kiss of death" -- a sign your athletic career will soon end. Olympic champion, entrepreneur and proud mother Allyson Felix thinks it shouldn't be that way.
-                                </p>
-                            </div>
-                            <div class="videos-small">
-                                <div class="video-small">
-                                    <a href="#">
-                                        <i class="fa fa-play-circle-o fa-4x" style="color: rgb(255, 255, 255)"></i>
-                                        <img src="{% static 'images/ted2.jpg'%}" />
-                                    </a>
-                                    <div class="more">
-                                        <h3 class="vid-name"><a href="#">Video's Name</a></h3>
-                                        <span><i class="fa fa-calendar"></i>25/3/2015</span>
-                                        <p>An Olympic champion's mindset for overcoming fear</p>
-                                    </div>
-
-                                </div>
-                                <div class="video-small">
-                                    <a href="#">
-                                        <i class="fa fa-play-circle-o fa-4x"></i>
-                                        <img src="{% static 'images/ted3.jpg'%}" />
-                                    </a>
-
-                                    <div class="more">
-                                        <h3 class="vid-name"><a href="#">Video's Name</a></h3>
-                                        <span><i class="fa fa-calendar"></i>25/3/2015</span>
-                                        <p>An Olympic champion's mindset for overcoming fear</p>
-                                    </div>
-
-                                </div>
-                                <div class="video-small">
-                                    <a href="#">
-                                        <i class="fa fa-play-circle-o fa-4x" style="color: #fff"></i>
-                                        <img src="{% static 'images/ted4.jpg'%}" />
-                                    </a>
-                                    <div class="more">
-                                        <h3 class="vid-name"><a href="#">Video's Name</a></h3>
-                                        <span><i class="fa fa-calendar"></i>25/3/2015</span>
-                                        <p>An Olympic champion's mindset for overcoming fear</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="videos-small">
-                                <div class="video-small">
-                                    <a href="#">
-                                        <i class="fa fa-play-circle-o fa-4x" style="color: rgb(255, 255, 255)"></i>
-                                        <img src="{% static 'images/ted5.jpg'%}" />
-                                    </a>
-                                    <div class="more">
-                                        <h3 class="vid-name"><a href="#">The crime-fighting power of cross-border investigative journalism</a></h3>
-                                        <span><i class="fa fa-calendar"></i>25/3/2015</span>
-                                        <p>An Olympic champion's mindset for overcoming fear</p>
-                                    </div>
-
-                                </div>
-                                <div class="video-small">
-                                    <a href="#">
-                                        <i class="fa fa-play-circle-o fa-4x"></i>
-                                        <img src="{% static 'images/ted1.jpg'%}" />
-                                    </a>
-
-                                    <div class="more">
-                                        <h3 class="vid-name"><a href="#">Video's Name</a></h3>
-                                        <span><i class="fa fa-calendar"></i>25/3/2015</span>
-                                        <p>An Olympic champion's mindset for overcoming fear</p>
-                                    </div>
-
-                                </div>
-                                <div class="video-small">
-                                    <a href="#">
-                                        <i class="fa fa-play-circle-o fa-4x" style="color: #fff"></i>
-                                        <img src="{% static 'images/ted3.jpg'%}" />
-                                    </a>
-                                    <div class="more">
-                                        <h3 class="vid-name"><a href="#">Video's Name</a></h3>
-                                        <span><i class="fa fa-calendar"></i>25/3/2015</span>
-                                        <p>An Olympic champion's mindset for overcoming fear</p>
-                                    </div>
-                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </main>
-            <footer>
-                <div class="footer">
-
-                </div>
-            </footer>
-
-
-        </div>
-    </div>
+      
 </body>
-
-    <script type="text/javascript">
-        $('.message a').click(function(){
-        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-    });
-    </script>
 </html>
