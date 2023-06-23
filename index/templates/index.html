@@ -52,7 +52,19 @@
 			$().UItoTop({ easingType: 'easeOutQuart' });
 	});
 	</script>
+	<style>
+		.header-bottom{
+			background-color: white;
+			/* position: fixed; */
+    		/* top: 0; */
+		}
 
+		.scroll:hover{
+			color:darkcyan;
+		}
+
+
+	</style>
 </head>
 <body>
  <!-- header -->
@@ -72,13 +84,12 @@
 				<!--/.navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-					 <li><a href="index.html">Home</a></li>
-						<li><a href="#services" class="scroll">Services</a></li>
-						 <li><a href="#about" class="scroll">About</a></li>
-						<li><a href="#gallery" class="scroll">Gallery</a></li>
-						<li><a href="#insurance" class="scroll">纹样库</a></li>
-						<li><a href="#contact" class="scroll">Contact</a></li>
-					</ul>
+						<li><a href="{% url 'index:index' %}">首页</a></li>
+						   <li><a href="{% url 'pattern:passage' %}" class="scroll">纹样库</a></li>
+						   <li><a href="#insurance" class="scroll">前沿研究</a></li>
+						   <li><a href="#insurance" class="scroll">创作中心</a></li>
+						   <li><a href="#contact" class="scroll">关于我们</a></li>
+					   </ul>
 				</div>
 				<!--/.navbar-collapse-->
 			</nav>
@@ -86,7 +97,7 @@
 					<div id="sb-search" class="sb-search">
 <!--					<div id="sb-search" class="sb-search">-->
 						<form>
-							<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+							<input class="sb-search-input" placeholder="搜索" type="search" name="search" id="search">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search" > </span>
 							</form>

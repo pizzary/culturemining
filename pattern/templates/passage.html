@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Gallery</title>
+		<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<!-- Custom Theme files -->
+		<link href="{% static 'css/style2.css' %}" rel='stylesheet' type='text/css' />
+		<!-- Custom Theme files -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- Google Fonts -->
+		<link href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="{% static 'js/jquery.mousewheel.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/jquery.contentcarousel.js' %}"></script>
+		<script src="{% static 'js/easing.js' %}"></script>
+		
+		
+		
+		<!-- mixing -->
+		<link href="{% static 'css/style.css'%}" rel='stylesheet' type='text/css' />
+		<script src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
+		<!--webfonts-->
+		<link href='http://fonts.useso.com/css?family=Antic' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700|Six+Caps' rel='stylesheet' type='text/css' />
+		   <!--//webfonts-->
+		   <link rel="stylesheet" href="{% static 'css/flexslider.css'%}" type="text/css" media="screen" />
+		<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+		<!--light-box-files -->
+		<script src="{% static 'js/modernizr.custom.97074.js'%}"></script>
+		<script src="{% static 'js/jquery.chocolat.js'%}"></script>
+			<link rel="stylesheet" href="{% static 'css/chocolat.css'%}" type="text/css" media="screen" charset="utf-8">
+		
+			<script type="text/javascript" charset="utf-8">
+			$(function() {
+				$('.g-left a').Chocolat();
+			});
+			</script>
+		<!--light-box-files -->
+		<script type="text/javascript" src="{% static 'js/move-top.js'%}"></script>
+			   <script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+				<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+						});
+					});
+				</script>
+				<script type="text/javascript">
+				$(document).ready(function() {
+						/*
+						var defaults = {
+						containerID: 'toTop', // fading element id
+						containerHoverID: 'toTopHover', // fading element hover id
+						scrollSpeed: 1200,
+						easingType: 'linear'
+						};
+						*/
+				$().UItoTop({ easingType: 'easeOutQuart' });
+		});
+		</script>
+		<style>
+			.small-image {
+				max-width: 50%; /* 或者指定具体的像素值 */
+				width:auto;
+				display: flex; 
+				justify-content: center;
+  				align-items: center;
+				margin-left: 200px;
+				}
+			.small_img p {
+				margin-left:300px;
+			}
+			.header-bottom{
+			background-color: white;
+			/* position: fixed; */
+    		/* top: 0; */
+		}
+
+		.navbar-default .navbar-nav > li > a:hover,.navbar-default .navbar-nav > li > a:visited{
+			color:darkcyan;
+		}
+
+		</style>
+		<!-- //grid-slider -->
+	</head>
+<body>
+	 <!-- header-bottom -->
+     <div class="header-bottom">
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!--/.navbar-header-->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="{% url 'index:index' %}">首页</a></li>
+						   <li><a href="{% url 'pattern:passage' %}" class="scroll">纹样库</a></li>
+						   <li><a href="#insurance" class="scroll">前沿研究</a></li>
+						   <li><a href="#insurance" class="scroll">创作中心</a></li>
+						   <li><a href="#contact" class="scroll">关于我们</a></li>
+					   </ul>
+				</div>
+				<!--/.navbar-collapse-->
+			</nav>
+			<div class="search-box">
+					<div id="sb-search" class="sb-search">
+<!--					<div id="sb-search" class="sb-search">-->
+						<form>
+							<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+							<input class="sb-search-submit" type="submit" value="">
+							<span class="sb-icon-search" > </span>
+							</form>
+					</div>
+				</div>
+					<div class="clearfix"> </div>
+
+				<!-- search-scripts -->
+					<script src="{% static 'js/classie.js'%}"></script>
+					<script src="{% static 'js/uisearch.js'%}"></script>
+					<script>
+						new UISearch( document.getElementById( 'sb-search' ) );
+					</script>
+				<!-- //search-scripts -->
+
+		</div>
+	</div>
+	<!-- /header-bottom -->
+<!-- Page Starts Here -->
+<div class="content">
+	<div class="container">
+		<div class="gallery">
+			<h3>纹样百科</h3>
+			<div class="blog-sidebar">
+				<h4>纹样类别</h4>
+				<ul class="cat-list">
+					<li><a href="#">动物纹</a></li>
+					<li><a href="#">植物纹</a></li>
+					<li><a href="#">自然纹</a></li>
+					<li><a href="#">字纹</a></li>
+					<li><a href="#">其它纹样</a></li>
+				</ul>
+				<h4>近期热门</h4>
+				<ul class="cat-list">
+					<li><a href="#"><img src="images/bl.jpg" alt="" />&nbsp;&nbsp;唐锦花鸟纹</a></li>
+					<li><a href="#"><img src="images/bl2.jpg" alt="" />&nbsp;&nbsp;清锦蝶花纹样</a></li>
+					<li><a href="#"><img src="images/bl3.jpg" alt="" />&nbsp;&nbsp;明锦鲤鱼水波纹</a></li>
+					<li><a href="#"><img src="images/bl4.jpg" alt="" />&nbsp;&nbsp;宋锦重莲团花纹</a></li>
+					<li><a href="#"><img src="images/bl.jpg" alt="" />&nbsp;&nbsp;唐锦牡丹纹</a></li>
+				</ul>
+			</div>
+			<div class="blog-content">
+				<div class="blog-post">
+					<h4>宝相花纹</h4>
+					<div class="post-details">
+						<p>编辑者 <a href="#">Wen</a> &nbsp;&nbsp; 于 <span>2023.06.23</span> &nbsp;&nbsp; 喜欢<span>(10)</span></p>
+					</div>
+					<img src="{% static 'images/宝相花.png' %}" alt="" />
+					<div>介绍</div>
+					<p>宝相花纹，又称宝仙花、宝莲花，是中国传统的吉祥纹样，也是佛教常用的一种纹饰。宝相是指佛的庄严形象，宝相花是一种完美圣洁的花。</p>
+					<div>结构</div>
+					<p>宝相花是从莲花、石榴花、牡丹、菊花等多种花中分别提取花 瓣、花苞、叶子的造型，经艺术加工融合而成。不同时期的宝相花纹不尽相同。为了满足不同的需求，宝相花纹可以变形，呈现出姿态各异、艳丽多彩的效果。</p>
+					<div>应用</div>
+					<p>从魏晋南北朝开始，植物花卉题材的纹样越来越多。宝相花纹进入了陶瓷艺术、建筑装饰和器皿装饰等许多艺术领域。到了隋唐时 期，宝相花纹造型更加饱满，以不同的自然花卉为基础，花瓣多层，具有雍容华贵的美感。隋唐之后，宝相花纹流行于织锦、铜镜和瓷器上，成为独具特色的中华民族传统纹样。</p>
+				</div>
+				<div class="small_img">
+					<img src="{% static 'images/宝相花2.png' %}" class="small-image" />
+					<p>唐代藻井上的综合型宝相花纹</p>
+				</div>
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- Page Ends Here -->
+<!-- Footer Part Starts Here -->
+
+<!-- Footer Part Ends Here -->
+
+</body>
+</html>
+	

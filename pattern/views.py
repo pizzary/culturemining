@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 import cv2
 import numpy as np
 from django.http import JsonResponse, HttpResponse
-from .image_retrieval import algorithm2
+# from .image_retrieval import algorithm2
 from .models import Patternbank
 from django.db.models import Q
 # Create your views here.
@@ -43,8 +43,8 @@ def pattern(request):
     else:
         return render(request, "pattern.html")
 
-def single(request):
-    return render(request, "single.html")
+def passage(request):
+    return render(request, "passage.html")
 
 def retrieval(request):
     if request.method == 'POST':
