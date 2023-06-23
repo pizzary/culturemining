@@ -21,5 +21,6 @@ from . import views
 app_name = 'pattern'
 urlpatterns = [
     path('', views.pattern, name="pattern"),
+    path('passage/', views.passage, name="passage"),
     path('retrieval', views.retrieval, name="retrieval")
 ]

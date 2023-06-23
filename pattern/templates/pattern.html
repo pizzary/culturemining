@@ -16,11 +16,130 @@
 <script type="text/javascript" src="{% static 'js/jquery.mousewheel.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.contentcarousel.js' %}"></script>
 <script src="{% static 'js/easing.js' %}"></script>
+
+
+
+<!-- mixing -->
+<link href="{% static 'css/style.css'%}" rel='stylesheet' type='text/css' />
+<script src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
+<!--webfonts-->
+<link href='http://fonts.useso.com/css?family=Antic' rel='stylesheet' type='text/css' />
+<link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700|Six+Caps' rel='stylesheet' type='text/css' />
+   <!--//webfonts-->
+   <link rel="stylesheet" href="{% static 'css/flexslider.css'%}" type="text/css" media="screen" />
+<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+<!--light-box-files -->
+<script src="{% static 'js/modernizr.custom.97074.js'%}"></script>
+<script src="{% static 'js/jquery.chocolat.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/chocolat.css'%}" type="text/css" media="screen" charset="utf-8">
+
+    <script type="text/javascript" charset="utf-8">
+    $(function() {
+        $('.g-left a').Chocolat();
+    });
+    </script>
+<!--light-box-files -->
+<script type="text/javascript" src="{% static 'js/move-top.js'%}"></script>
+       <script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+                });
+            });
+        </script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+                /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+                */
+        $().UItoTop({ easingType: 'easeOutQuart' });
+});
+</script>
+<style>
+    .gallery-pic {
+      width: 80%;
+      max-width: 230px;
+      height: auto;
+      display: flex;
+      margin:auto;
+    }
+
+    form {
+    margin-top:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input[type="text"],
+  select {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  select {
+    width: 100px;
+  }
+  
+  button[type="submit"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+
+  .gallery-title {
+    text-align: center;
+    margin-top: 50px;
+    opacity: 0.8;
+  }
+  
+  .gallery-title h3 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .gallery-title p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.5;
+  }
+  .header-bottom{
+			background-color: white;
+			/* position: fixed; */
+    		/* top: 0; */
+		}
+
+		.navbar-default .navbar-nav > li > a:hover,.navbar-default .navbar-nav > li > a:visited{
+			color:darkcyan;
+		}
+  </style>
 <!-- //grid-slider -->
 </head>
 <body>
 <!-- Header Starts Here -->
-	<div class="header-bottom">
+
+	 <!-- header-bottom -->
+     <div class="header-bottom">
 		<div class="container">
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
@@ -34,28 +153,44 @@
 				<!--/.navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-					 <li><a href="index.html">Home</a></li>
-						<li><a href="#services" class="scroll">Services</a></li>
-						 <li><a href="#about" class="scroll">About</a></li>
-						<li><a href="#gallery" class="scroll">Gallery</a></li>
-						<li><a href="#insurance" class="scroll">Insurance</a></li>
-						<li><a href="#contact" class="scroll">Contact</a></li>
+					 <li><a href="{% url 'index:index' %}">首页</a></li>
+						<li><a href="{% url 'pattern:passage' %}" class="scroll">纹样库</a></li>
+						<li><a href="#insurance" class="scroll">前沿研究</a></li>
+                        <li><a href="#insurance" class="scroll">创作中心</a></li>
+						<li><a href="#contact" class="scroll">关于我们</a></li>
 					</ul>
 				</div>
 				<!--/.navbar-collapse-->
 			</nav>
-
+			<div class="search-box">
+					<div id="sb-search" class="sb-search">
+<!--					<div id="sb-search" class="sb-search">-->
+						<form>
+							<input class="sb-search-input" placeholder="Enter your search term..." type="search" name="search" id="search">
+							<input class="sb-search-submit" type="submit" value="">
+							<span class="sb-icon-search" > </span>
+							</form>
+					</div>
+				</div>
+					<div class="clearfix"> </div>
 
 				<!-- search-scripts -->
 					<script src="{% static 'js/classie.js'%}"></script>
 					<script src="{% static 'js/uisearch.js'%}"></script>
 					<script>
-						new UISearch( document.getElementById( 'cm-search' ) );
+						new UISearch( document.getElementById( 'sb-search' ) );
 					</script>
 				<!-- //search-scripts -->
 
 		</div>
 	</div>
+	<!-- /header-bottom -->
+    <div class="gallery-title">
+        <img src="{% static 'images/3.jpg' %}" class="banner"/>
+        <h3>纹样库</h3>
+        <p> 收集中华传统纹样，展现纹样魅力。 </p>
+    </div>
+
 <!-- Header Ends Here -->
     <form method="get" action="{% url 'pattern:pattern' %}">
         <input type="text" name="search_query" id="search_query" placeholder="搜索...">
@@ -119,8 +254,17 @@
 <div class="content">
 	<div class="container">
 		<div class="gallery">
-			<h3>Our Gallery</h3>
-			<p> when an unknown printer took a galley of type and scrambled it to make a type </p>
+            <div class="gallery-top">
+                <div class="view view-tenth">
+                    <img src="{% static 'images/宝相纹-small.jpg' %}" class="gallery-pic"/>
+                    <div class="mask">
+                        <h2>宝相花</h2>
+                        <p>宝相花纹，又称宝仙花、宝莲花，是中国传统的吉祥纹样，也是佛教常用的一种纹饰。</p>
+                        <a href="{% url 'pattern:passage' %}" class="info">详细介绍</a>
+                    </div>
+                </div>
+            <div class="clearfix"></div>
+
 			<div class="gallery-top">
                 {% for pattern in patterns %}
                 <div class="view view-tenth">
@@ -128,7 +272,7 @@
                     <div class="mask">
                         <h2>Our Gallery</h2>
                         <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings</p>
-                        <a href="single.html" class="info">Read More</a>
+                        <a href="{% url 'pattern:passage' %}" class="info">Read More</a>
                     </div>
                 </div>
                 {% endfor %}
