@@ -3,5 +3,5 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
 def creativecenter(request):
-    return render(request, "login.html")
+    return render(request, "center.html")
 

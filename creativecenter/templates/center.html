@@ -1,0 +1,269 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创作中心</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+    <link href="{% static 'css/style.css'%}" rel='stylesheet' type='text/css' />
+       <link rel="stylesheet" href="{% static 'css/flexslider.css'%}" type="text/css" media="screen" />
+<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
+<!--light-box-files -->
+<script src="{% static 'js/modernizr.custom.97074.js'%}"></script>
+<script src="{% static 'js/jquery.chocolat.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/chocolat.css'%}" type="text/css" media="screen" charset="utf-8">
+<script src="{% static 'js/jquery-1.11.1.min.js'%}"></script>
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .waterfall {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+    }
+    .block {
+        width: 25%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .block h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .image-container img {
+        width: 100%;
+        margin-bottom: 20px;
+        object-fit: cover;
+        object-position: center;
+    }
+    @media only screen and (max-width: 768px) {
+        .block {
+            width: 50%;
+        }
+    }
+    @media only screen and (max-width: 480px) {
+        .block {
+            width: 100%;
+        }
+    }
+
+
+  .gallery-title {
+    text-align: center;
+    margin-top: 100px;
+    opacity: 0.8;
+    margin-bottom:50px;
+  }
+
+  .gallery-title h3 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .gallery-title p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .center-intro{
+  padding:20px;
+  width:500px;
+  }
+
+    .login-page {
+    width: 360px;
+    padding: 0 0 0 0;
+    margin: auto;
+    }
+    .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 330px;
+    margin: 30px auto 30px;
+    padding: 25px 40px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    }
+    .form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background:rgb(63 152 203);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    }
+    .form button:hover,.form button:active,.form button:focus {
+    background:rgb(76 189 255);
+    }
+    .form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+    }
+    .form .message a {
+    color: #0f85c9;
+    text-decoration: none;
+    }
+    .form .register-form {
+    display: none;
+    }
+    </style>
+    <script src="{% static 'js/jquery.chocolat.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/chocolat.css'%}" type="text/css" media="screen" charset="utf-8">
+
+    <script type="text/javascript" charset="utf-8">
+    $(function() {
+        $('.g-left a').Chocolat();
+    });
+    </script>
+<!--light-box-files -->
+<script type="text/javascript" src="{% static 'js/move-top.js'%}"></script>
+       <script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+                });
+            });
+        </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.message a').click(function(){
+            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+          });
+        });
+    </script>
+</head>
+<body>
+     <div class="header-bottom">
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!--/.navbar-header-->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+					 <li><a href="{% url 'index:index' %}">首页</a></li>
+						<li><a href="{% url 'pattern:pattern' %}" class="scroll">纹样库</a></li>
+						<li><a href="#insurance" class="scroll">前沿研究</a></li>
+                        <li><a href="#insurance" class="scroll">创作中心</a></li>
+						<li><a href="#contact" class="scroll">关于我们</a></li>
+					</ul>
+				</div>
+				<!--/.navbar-collapse-->
+			</nav>
+			<div class="search-box">
+					<div id="sb-search" class="sb-search">
+<!--					<div id="sb-search" class="sb-search">-->
+						<form>
+							<input class="sb-search-input" placeholder="搜索" type="search" name="search" id="search">
+							<input class="sb-search-submit" type="submit" value="">
+							<span class="sb-icon-search" > </span>
+							</form>
+					</div>
+				</div>
+					<div class="clearfix"> </div>
+
+				<!-- search-scripts -->
+					<script src="{% static 'js/classie.js'%}"></script>
+					<script src="{% static 'js/uisearch.js'%}"></script>
+					<script>
+						new UISearch( document.getElementById( 'sb-search' ) );
+					</script>
+				<!-- //search-scripts -->
+
+		</div>
+	</div>
+      <div class="waterfall">
+     <div class="gallery-title center-intro">
+        <h3>创作中心</h3>
+        <p> 分享你喜欢的中华传统纹样图案！ </p>
+    </div>
+     <div class="center-intro">
+
+    <div class="login-page">
+        <div class="form">
+          <form class="register-form">
+            <input type="text" placeholder="用户名"/>
+            <input type="password" placeholder="密码"/>
+            <input type="text" placeholder="验证邮箱"/>
+            <button>注册</button>
+            <p class="message">已经拥有账号? <a href="#">登录账号</a></p>
+          </form>
+          <form class="login-form">
+            <input type="text" placeholder="用户名"/>
+            <input type="password" placeholder="密码"/>
+            <button>登录</button>
+            <p class="message">还没有加入我们? <a href="#">注册账号</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+ </div>
+ </div>
+     <div class="waterfall">
+	<div class="block">
+        <div class="image-container">
+            <img src="{% static 'images/1.jpg'%}">
+            <img src="{% static 'images/2.jpg'%}">
+            <img src="{% static 'images/9.jpg'%}">
+            <img src="{% static 'images/10.jpg'%}">
+        </div>
+    </div>
+    <div class="block">
+        <div class="image-container">
+            <img src="{% static 'images/3.jpg'%}">
+            <img src="{% static 'images/4.jpg'%}">
+            <img src="{% static 'images/5.jpg'%}">
+            <img src="{% static 'images/ex1.jpg'%}">
+        </div>
+    </div>
+    <div class="block">
+        <div class="image-container">
+            <img src="{% static 'images/6.jpg'%}">
+            <img src="{% static 'images/8.jpg'%}">
+            <img src="{% static 'images/7.jpg'%}">
+            <img src="{% static 'images/ex6.jpg'%}">
+        </div>
+    </div>
+</div>
+</body>
+</html>
